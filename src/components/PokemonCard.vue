@@ -11,29 +11,31 @@ defineProps<ComponentProps>();
 
 <template>
   <div className="pokemon-card">
-    <section v-if="pokemon">
-      <h3>{{ pokemon.name }}</h3>
-      <img loading="lazy" className="pokemon-sprite" :src="pokemon.sprites.front_default" :alt="pokemon.name" />
+    <section>
+      <!-- Pokemon name with h3 tag -->
+      <img loading="lazy" className="pokemon-sprite" />
       <article className="pokemon-data">
         <details>
           <summary>ID</summary>
-          <p>{{ pokemon.id }}</p>
+          <!-- Pokemon id with p tag -->
         </details>
         <details>
           <summary>Types</summary>
-          <a v-for="(entry, index) in pokemon.types" :href="entry.type.url">{{`${index} - ${entry.type.name}`}}</a>
+          <!-- Pokemon types with a tags -->
         </details>
         <details>
           <summary>Abilities</summary>
-          <a v-for="(entry, index) in pokemon.abilities" :href="entry.ability.url">{{`${index} - ${entry.ability.name}`}}</a>
+          <!-- Pokemon abilities with a tags -->
         </details>
         <details>
           <summary>Moves</summary>
-          <a v-for="(entry, index) in pokemon.moves" :href="entry.move.url">{{`${index} - ${entry.move.name}`}}</a>
+          <!-- Pokemon moves with a tags -->
         </details>
       </article>
     </section>
-    <h3 v-if="error" className="pokemon-error">ERROR: {{JSON.stringify(error)}}</h3>
+    
+    <!-- Show error on h3 text. -->
+    <h3 className="pokemon-error">ERROR: </h3>
   </div>
 </template>
 
